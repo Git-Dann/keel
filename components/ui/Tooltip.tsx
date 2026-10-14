@@ -21,6 +21,15 @@ export interface TooltipProps {
 const GAP = 8;
 const EDGE = 8;
 
+/* Tooltips open on focus only when the user is moving focus with the keyboard. */
+let keyboardModality = false;
+if (typeof window !== 'undefined') {
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Tab' || e.key.startsWith('Arrow') || e.key === 'Shift') keyboardModality = true;
+  }, true);
+  window.addEventListener('pointerdown', () => (keyboardModality = false), true);
+}
+
 /**
  * Untitled UI tooltip behaviour, built to WCAG 1.4.13:
  * shows on hover (never touch hover) and keyboard focus, dismisses with Escape,
@@ -115,7 +124,7 @@ export function Tooltip({ content, title, kbd, placement = 'bottom', tapToggle, 
         }
       }}
       onFocus={(e) => {
-        if ((e.target as HTMLElement).matches?.(':focus-visible')) show();
+        if (keyboardModality && (e.target as HTMLElement).matches?.(':focus-visible')) show();
       }}
       onBlur={() => hide(true)}
     >

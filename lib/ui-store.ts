@@ -43,6 +43,8 @@ interface OverlayState {
   paletteOpen: boolean;
   navOpen: boolean;
   uploadOpen: boolean;
+  /** Open the upload modal straight into the sample extraction. */
+  uploadSample: boolean;
   wizard: WizardState | null;
   boardBuilding: boolean;
   resetConfirmOpen: boolean;
@@ -55,6 +57,7 @@ export const useOverlay = create<OverlayState>()((set) => ({
   paletteOpen: false,
   navOpen: false,
   uploadOpen: false,
+  uploadSample: false,
   wizard: null,
   boardBuilding: false,
   resetConfirmOpen: false,

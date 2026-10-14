@@ -1,6 +1,8 @@
 'use client';
 
-/** Modals that can be opened from anywhere (palette, Home, page actions). Filled in by later phases. */
+import { UploadModal } from '@/components/contracts/UploadModal';
+
+/** Modals that can be opened from anywhere: the palette, Home and page actions. */
 export function GlobalModals() {
-  return null;
+  return <UploadModal />;
 }
