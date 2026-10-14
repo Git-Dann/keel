@@ -63,4 +63,4 @@ Logic (`lib/logic`): `contracts`, `ai`, `tribunal`, `board`, `alerts`, `horizon`
 
 ## Deployment
 
-The container has no Vercel CLI login, so `vercel link` and `vercel deploy --prod` are replaced by a Vercel project called `keel-demo` created through the Vercel integration and linked to the GitHub repository. Production builds come from the repository.
+Production: https://keel-demo-tau.vercel.app (Vercel project `keel-demo`, team "Dan's projects", linked to `Git-Dann/keel`). The project was imported in the Vercel dashboard because the build session's Vercel connection could not create projects. Every push redeploys. The Playwright suite passes against the production URL.
