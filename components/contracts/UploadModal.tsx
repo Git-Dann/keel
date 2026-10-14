@@ -36,12 +36,15 @@ function UploadBody({ startWithSample, onClose }: { startWithSample: boolean; on
   const [over, setOver] = useState(false);
   const [step, setStep] = useState<number | null>(null);
   const [fileName, setFileName] = useState('');
+  const progressRef = useRef<HTMLDivElement>(null);
 
   const extract = useCallback(
     (name: string, party: string, label: string) => {
       setError('');
       setFileName(label);
       setStep(0);
+      // The buttons disable during extraction, so keep focus inside the dialog.
+      setTimeout(() => progressRef.current?.focus(), 0);
       STEPS.forEach((_, i) => timers.current.push(setTimeout(() => setStep(i + 1), STEP_MS * (i + 1))));
       timers.current.push(
         setTimeout(() => {
@@ -150,7 +153,7 @@ function UploadBody({ startWithSample, onClose }: { startWithSample: boolean; on
           </p>
         </>
       ) : (
-        <div>
+        <div ref={progressRef} tabIndex={-1} className="outline-hidden">
           <p className="mb-3 truncate text-sm font-medium text-secondary" title={fileName}>
             {fileName}
           </p>

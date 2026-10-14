@@ -86,7 +86,7 @@ export function Kpi({ label, value, sub, help, alert }: { label: string; value: 
   return (
     <Card as="div" className="p-4 sm:p-5">
       <div className="flex items-center gap-1.5 text-sm font-medium text-tertiary">
-        <span className="truncate">{label}</span>
+        <span className="min-w-0">{label}</span>
         {help && <HelpTip text={help} />}
       </div>
       <div className={cx('mt-3 font-head text-[34px] leading-none sm:text-[44px]', alert ? 'text-brand-secondary' : 'text-primary')}>{value}</div>

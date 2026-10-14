@@ -14,7 +14,7 @@ export function searchProspects(raw: string, all: Prospect[]): SearchResult {
   if (!trimmed) return { kind: 'empty' };
   const q = normaliseQuery(trimmed);
   if (q.length < 2) return { kind: 'short' };
-  const exact = all.find((p) => p.name.toLowerCase() === q || p.domain.toLowerCase() === q || p.domain.toLowerCase().split('.')[0] === q);
+  const exact = all.find((p) => p.name.toLowerCase() === q || p.domain.toLowerCase() === q);
   if (exact) return { kind: 'exact', prospect: exact };
   const matches = all.filter((p) => {
     const name = p.name.toLowerCase();
