@@ -14,10 +14,13 @@ export function startBuildDraft() {
   }
   const rebuilding = !!data.board.draft;
   o.set({ boardBuilding: true });
+  const reveal = () => document.getElementById('draft')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  setTimeout(reveal, 80);
   setTimeout(() => {
     useKeel.getState().buildDraft();
     useOverlay.getState().set({ boardBuilding: false });
     toast(rebuilding ? 'Draft rebuilt' : 'Draft built', 'Edit any paragraph before you send it.');
+    setTimeout(reveal, 50);
   }, 1100);
 }
 

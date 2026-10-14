@@ -1,3 +1,5 @@
+import { BoardPage } from '@/components/board/BoardPage';
+
 export default function Page() {
-  return <p className="text-tertiary">Coming in a later phase.</p>;
+  return <BoardPage />;
 }
