@@ -4,7 +4,7 @@ import { cx } from '@/utils/cx';
 export function BoatMark({ className, tile = true }: { className?: string; tile?: boolean }) {
   return (
     <svg viewBox="0 0 32 32" className={className} aria-hidden focusable="false">
-      {tile && <rect width="32" height="32" rx="8" className="fill-bg-brand-solid" />}
+      {tile && <rect width="32" height="32" rx="8" className="fill-brand-600" />}
       <path d="M6 20h20l-3.5 5.5h-13z" fill="#fff" />
       <path d="M16 5.5V20" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" />
       <path d="M17.5 7.5 24 17h-6.5z" fill="#fff" />

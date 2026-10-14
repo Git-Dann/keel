@@ -61,7 +61,7 @@ Badges and callouts use the Untitled `utility-*` tokens, which invert in dark mo
 
 | Use | Token |
 |---|---|
-| Primary button | bg-brand-solid (Orange 600), hover Orange 700 |
+| Primary button | bg-brand-solid overridden to Orange 700 (#c2410c), hover Orange 800, in both themes. White text is about 5.2:1, which passes AA. The logo tile and favicon stay Orange 600 |
 | Focus ring | Orange 500 at 24% opacity, 4px (`--ring-brand`); keyboard focus also gets a 2px Orange 500 outline so it stays visible |
 | Selected nav | bg-brand-primary_alt (Orange 50), text-brand-secondary (Orange 700) |
 | Warnings | Untitled yellow, never orange |

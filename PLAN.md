@@ -57,7 +57,7 @@ Logic (`lib/logic`): `contracts`, `ai`, `tribunal`, `board`, `alerts`, `horizon`
 - **Account search.** Only a full name or full domain counts as an exact match. "Orbitex" alone shows suggestions.
 - **Toasts on phones** drop in from the top, so they never cover a drawer's sticky footer or the bottom sheet. On larger screens they sit bottom right and move above the open tray.
 - **Upload cancel.** Footer buttons are disabled while Keel extracts, as the brief says. Closing the dialog (close button, Escape or backdrop) cancels the extraction and says nothing was added.
-- **Contrast.** White text on the orange 600 primary button is about 3.6:1, which meets AA for large text only. The brief fixes orange 600 for buttons, so that is kept. The pitch hero uses orange 700 (about 5.2:1) because it holds body-size text.
+- **Contrast.** Primary buttons use orange 700 (hover 800) instead of the brief's orange 600, so white button text is about 5.2:1 and passes AA. This is set once on the `bg-brand-solid` token, so checkbox ticks, the tray count and chat bubbles follow. The logo and favicon stay orange 600. The pitch hero also uses orange 700.
 - **Breakpoints** `nav` (860px) and `split` (1080px) are defined in rem so Tailwind orders them after its own breakpoints.
 - **Next.js config.** `cacheComponents` and partial prefetching from the scaffold were removed. The app is fully client-rendered after hydration because all data lives in the browser, so they add nothing and complicate `useSearchParams`.
 

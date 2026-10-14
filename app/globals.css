@@ -24,6 +24,10 @@
     --color-module-accounts: var(--color-blue-600);
     --color-module-board: var(--color-teal-600);
 
+    /* Primary buttons use orange 700 (hover 800) so white text passes WCAG AA. */
+    --color-bg-brand-solid: var(--color-brand-700);
+    --color-bg-brand-solid_hover: var(--color-brand-800);
+
     --breakpoint-nav: 53.75rem; /* 860px */
     --breakpoint-split: 67.5rem; /* 1080px */
 }
@@ -40,6 +44,8 @@
 
 :root[data-theme="dark"] {
     color-scheme: dark;
+    --color-bg-brand-solid: var(--color-brand-700);
+    --color-bg-brand-solid_hover: var(--color-brand-800);
     --ring-brand: 0 0 0 4px rgb(249 115 22 / 0.32);
 }
 
