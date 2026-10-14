@@ -1,0 +1,132 @@
+@import "tailwindcss";
+@import "../styles/theme.css";
+@import "../styles/primitives.css";
+
+@plugin "tailwindcss-react-aria-components";
+@plugin "tailwindcss-animate";
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+@custom-variant label (& [data-label]);
+@custom-variant focus-input-within (&:has(input:focus));
+
+/*
+ * Keel layer on top of Untitled UI.
+ * Fonts come from next/font (variables set on <html>).
+ * Module colours map to Untitled UI primitives, never new values.
+ */
+@theme {
+    --font-body: var(--font-inter), -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    --font-display: var(--font-gruppo), "Josefin Sans", "Century Gothic", "Avenir Next", ui-sans-serif, sans-serif;
+
+    --color-module-contracts: var(--color-orange-500);
+    --color-module-ai: var(--color-violet-600);
+    --color-module-tribunal: var(--color-red-600);
+    --color-module-accounts: var(--color-blue-600);
+    --color-module-board: var(--color-teal-600);
+
+    /* Primary buttons use orange 700 (hover 800) so white text passes WCAG AA. */
+    --color-bg-brand-solid: var(--color-brand-700);
+    --color-bg-brand-solid_hover: var(--color-brand-800);
+
+    --breakpoint-nav: 53.75rem; /* 860px */
+    --breakpoint-split: 67.5rem; /* 1080px */
+}
+
+:root {
+    --sidebar-w: 264px;
+    --sidebar-w-collapsed: 76px;
+    --tray-h: 44px;
+    --tray-open: 340px;
+    /* Untitled UI focus ring: brand at 24% opacity, 4px spread. */
+    --ring-brand: 0 0 0 4px rgb(249 115 22 / 0.24);
+    color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+    color-scheme: dark;
+    --color-bg-brand-solid: var(--color-brand-700);
+    --color-bg-brand-solid_hover: var(--color-brand-800);
+    --ring-brand: 0 0 0 4px rgb(249 115 22 / 0.32);
+}
+
+@layer base {
+    html,
+    body {
+        height: 100%;
+        font-family: var(--font-body);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+        background: var(--color-bg-secondary);
+        color: var(--color-text-primary);
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    :focus-visible {
+        outline: 2px solid var(--color-focus-ring);
+        outline-offset: 2px;
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    input[type="number"] {
+        -moz-appearance: textfield;
+    }
+
+    [contenteditable="true"]:focus {
+        outline: 2px dashed var(--color-brand-300);
+        outline-offset: 4px;
+        border-radius: 4px;
+    }
+}
+
+@utility font-head {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: 0.01em;
+}
+
+@utility ring-brand {
+    box-shadow: var(--ring-brand);
+}
+
+@utility scrollbar-hide {
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    scrollbar-width: none;
+}
+
+@utility pb-safe {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Skeleton shimmer, disabled by reduced motion below. */
+@keyframes keel-shimmer {
+    to {
+        background-position: -200% 0;
+    }
+}
+@utility skeleton {
+    background: linear-gradient(90deg, var(--color-bg-tertiary), var(--color-bg-secondary), var(--color-bg-tertiary));
+    background-size: 200% 100%;
+    animation: keel-shimmer 1.2s infinite;
+    border-radius: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
