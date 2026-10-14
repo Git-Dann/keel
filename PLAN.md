@@ -17,15 +17,15 @@ Keel is a demo B2B platform for the COO or head of operations at a 50 to 500 per
 | 1 | Project setup, tokens, fonts, theme, base components | Done |
 | 2 | App shell: sidebar, top bar, command palette, tray, toasts, tooltips, dialogs, routing, shortcuts | Done |
 | 3 | Data model, seed data, store, business logic with unit tests | Done |
-| 4 | Home and the Horizon | |
-| 5 | Contracts | |
-| 6 | AI register | |
-| 7 | Tribunal risk | |
-| 8 | Account research | |
-| 9 | Board pack | |
-| 10 | The case for Keel | |
-| 11 | Responsive, accessibility, edge-case and dark mode passes | |
-| 12 | Playwright tests, build, deploy | |
+| 4 | Home and the Horizon | Done |
+| 5 | Contracts | Done |
+| 6 | AI register | Done |
+| 7 | Tribunal risk | Done |
+| 8 | Account research | Done |
+| 9 | Board pack | Done |
+| 10 | The case for Keel | Done |
+| 11 | Responsive, accessibility, edge-case and dark mode passes | Done |
+| 12 | Playwright tests, build, deploy | Done |
 
 Phase 3 was committed before phase 2 because the shell's nav badges, alerts and palette read from the store.
 
@@ -51,6 +51,14 @@ Logic (`lib/logic`): `contracts`, `ai`, `tribunal`, `board`, `alerts`, `horizon`
 - **`c2` office lease.** Its notice falls exactly 30 days out, so by the rules it is Notice due on the day the demo loads.
 - **Prospect domains** use `.example`, as in the prototype.
 - **Board pack due** is the meeting date minus 5 days.
+- **AI paperwork display.** A seeded tool keeps its register percentage (MoodLens shows 10%) until a duty is ticked, because rounding 10% of three duties ticks none. From the first tick the percentage follows the ticks.
+- **Save as not assessed.** The wizard's step-two error says "go back and save it as not assessed", so step one has a "Save as not assessed" link.
+- **Reassess.** Opens the wizard at step two with no uses ticked. Back reaches step one, and name, vendor and owner edits are saved with the new tier.
+- **Account search.** Only a full name or full domain counts as an exact match. "Orbitex" alone shows suggestions.
+- **Toasts on phones** drop in from the top, so they never cover a drawer's sticky footer or the bottom sheet. On larger screens they sit bottom right and move above the open tray.
+- **Upload cancel.** Footer buttons are disabled while Keel extracts, as the brief says. Closing the dialog (close button, Escape or backdrop) cancels the extraction and says nothing was added.
+- **Contrast.** White text on the orange 600 primary button is about 3.6:1, which meets AA for large text only. The brief fixes orange 600 for buttons, so that is kept. The pitch hero uses orange 700 (about 5.2:1) because it holds body-size text.
+- **Breakpoints** `nav` (860px) and `split` (1080px) are defined in rem so Tailwind orders them after its own breakpoints.
 - **Next.js config.** `cacheComponents` and partial prefetching from the scaffold were removed. The app is fully client-rendered after hydration because all data lives in the browser, so they add nothing and complicate `useSearchParams`.
 
 ## Deployment
