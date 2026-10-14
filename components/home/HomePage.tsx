@@ -47,6 +47,7 @@ export function HomePage() {
   const alerts = useAlerts();
   const setOverlay = useOverlay((s) => s.set);
   const events = useMemo(() => horizonEvents(data), [data]);
+  const urgentHrefs = useMemo(() => new Set(alerts.map((a) => a.href)), [alerts]);
   const worst = alerts.slice(0, 6);
 
   const stats = useMemo(() => {
@@ -81,10 +82,10 @@ export function HomePage() {
         }
       />
       <HelperBanner id="home" title="This is your horizon">
-        Every deadline from all five tools sits on one line, so a contract notice, a tribunal hearing and the board pack never surprise you. Hover a dot for detail, click to open it.
+        Every deadline from all five tools sits on one timeline, a row per tool, so a contract notice, a tribunal hearing and the board pack never surprise you. Ringed dots need you now. Hover a dot for detail, click to open it.
       </HelperBanner>
 
-      <Horizon events={events} />
+      <Horizon events={events} urgentHrefs={urgentHrefs} />
 
       <div className="grid gap-6 split:grid-cols-[2fr_1fr]">
         <Card aria-labelledby="needs-title">

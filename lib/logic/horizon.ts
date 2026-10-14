@@ -39,24 +39,5 @@ export function horizonEvents(d: WorkspaceData, base: Date = today()): HorizonEv
   return ev.sort((a, b) => a.day - b.day || a.id.localeCompare(b.id));
 }
 
-export type Lane = 0 | 1 | 2; // middle, above, below
-
-/**
- * Stack dots that fall within `gap` days of each other onto three lanes
- * (middle, above, below) so none overlap. Events must be sorted by day.
- */
-export function assignLanes(events: { day: number }[], gap = 4): Lane[] {
-  const last: (number | null)[] = [null, null, null];
-  return events.map((e) => {
-    let lane = last.findIndex((d) => d == null || e.day - d >= gap);
-    if (lane === -1) {
-      // All lanes busy: reuse the lane whose last dot is furthest back.
-      lane = last.reduce<number>((best, d, i) => ((d ?? -Infinity) < (last[best] ?? -Infinity) ? i : best), 0);
-    }
-    last[lane] = e.day;
-    return lane as Lane;
-  });
-}
-
 /** Weekly gridlines, as day offsets, excluding today. */
 export const weekTicks = (): number[] => Array.from({ length: Math.floor(HORIZON_DAYS / 7) }, (_, i) => (i + 1) * 7);
