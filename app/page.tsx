@@ -1,3 +1,5 @@
-export default function HomePage() {
-  return <p className="text-tertiary">Home is built in phase 4.</p>;
+import { HomePage } from '@/components/home/HomePage';
+
+export default function Page() {
+  return <HomePage />;
 }

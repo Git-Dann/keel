@@ -69,7 +69,7 @@ export function HelperBanner({ id, title, children }: { id: string; title: strin
   const hideTip = useKeel((s) => s.hideTip);
   if (hidden) return null;
   return (
-    <aside aria-label="Tip" className="mb-6 flex items-start gap-3 rounded-xl border border-brand bg-brand-primary_alt p-4 dark:border-secondary dark:bg-secondary">
+    <aside aria-label="Tip" className="mb-6 flex items-start gap-3 rounded-xl border border-utility-brand-200 bg-utility-brand-50 p-4 dark:border-secondary dark:bg-secondary">
       <span className="grid size-9 shrink-0 place-items-center rounded-full bg-brand-secondary text-fg-brand-primary dark:bg-tertiary" aria-hidden>
         <Lightbulb02 className="size-5" />
       </span>
