@@ -1,3 +1,5 @@
+import { TribunalPage } from '@/components/tribunal/TribunalPage';
+
 export default function Page() {
-  return <p className="text-tertiary">Coming in a later phase.</p>;
+  return <TribunalPage />;
 }
