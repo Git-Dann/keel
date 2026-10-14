@@ -1,3 +1,5 @@
+import { AccountsPage } from '@/components/accounts/AccountsPage';
+
 export default function Page() {
-  return <p className="text-tertiary">Coming in a later phase.</p>;
+  return <AccountsPage />;
 }
