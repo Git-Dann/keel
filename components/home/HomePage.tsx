@@ -86,7 +86,7 @@ export function HomePage() {
 
       <Horizon events={events} />
 
-      <div className="grid gap-6 min-[1080px]:grid-cols-[2fr_1fr]">
+      <div className="grid gap-6 split:grid-cols-[2fr_1fr]">
         <Card aria-labelledby="needs-title">
           <CardHeader id="needs-title" title="Needs you" sub="Sorted by risk, worst first" />
           {worst.length ? (
@@ -143,7 +143,7 @@ export function HomePage() {
       </div>
 
       <h2 className="mt-8 mb-4 text-lg font-semibold text-primary">Your tools</h2>
-      <div className="grid grid-cols-1 gap-4 min-[480px]:grid-cols-2 min-[1080px]:grid-cols-5">
+      <div className="grid grid-cols-1 gap-4 min-[30rem]:grid-cols-2 split:grid-cols-5">
         <ToolCard id="contracts" value={stats.live} label="live contracts" status={`${plural(stats.due, 'notice')} due`} />
         <ToolCard id="ai" value={data.ai.length} label="AI tools in use" status={`${stats.highAi} high risk or banned`} />
         <ToolCard id="tribunal" value={data.cases.length} label="open HR cases" status={`${stats.highCases} high risk`} />

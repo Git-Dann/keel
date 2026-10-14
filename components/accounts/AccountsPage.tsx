@@ -149,7 +149,7 @@ export function AccountsPage() {
         </form>
       </Card>
 
-      <div className="grid items-start gap-6 min-[1080px]:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]">
+      <div className="grid items-start gap-6 split:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]">
         <Card aria-labelledby="targets-h">
           <CardHeader id="targets-h" title="Target accounts" sub="Sorted by fit" />
           <ul className="divide-y divide-secondary">

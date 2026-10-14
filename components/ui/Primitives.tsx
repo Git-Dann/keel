@@ -96,7 +96,7 @@ export function Kpi({ label, value, sub, help, alert }: { label: string; value: 
 }
 
 export function KpiGrid({ children }: { children: ReactNode }) {
-  return <div className="mb-6 grid grid-cols-2 gap-3 sm:gap-4 min-[1080px]:grid-cols-4">{children}</div>;
+  return <div className="mb-6 grid grid-cols-2 gap-3 sm:gap-4 split:grid-cols-4">{children}</div>;
 }
 
 export function EmptyState({ icon: Icon, title, children, action }: { icon: FC<{ className?: string }>; title: string; children?: ReactNode; action?: ReactNode }) {

@@ -20,7 +20,7 @@ export function TopBar() {
   const openTab = (tab: 'alerts' | 'shortcuts') => setTray(!(ui.trayOpen && ui.trayTab === tab), tab);
 
   return (
-    <header className="flex h-16 shrink-0 items-center gap-2 border-b border-secondary bg-primary px-3 pt-[env(safe-area-inset-top)] min-[860px]:gap-3 min-[860px]:px-6">
+    <header className="flex h-16 shrink-0 items-center gap-2 border-b border-secondary bg-primary px-3 pt-[env(safe-area-inset-top)] nav:gap-3 nav:px-6">
       <Button
         color="tertiary"
         size="md"
@@ -28,18 +28,18 @@ export function TopBar() {
         aria-label="Open menu"
         aria-expanded={navOpen}
         onPress={() => setOverlay({ navOpen: true })}
-        className="min-[860px]:hidden"
+        className="nav:hidden"
       />
       <button
         type="button"
         onClick={() => setOverlay({ paletteOpen: true })}
         aria-label="Search and run commands"
         aria-haspopup="dialog"
-        className="flex h-10 w-10 shrink-0 items-center justify-center gap-2 rounded-lg text-left text-md text-placeholder ring-primary transition-colors hover:bg-primary_hover min-[860px]:w-full min-[860px]:max-w-[420px] min-[860px]:justify-start min-[860px]:bg-primary min-[860px]:px-3 min-[860px]:shadow-xs min-[860px]:ring-1 min-[860px]:ring-inset"
+        className="flex h-10 w-10 shrink-0 items-center justify-center gap-2 rounded-lg text-left text-md text-placeholder ring-primary transition-colors hover:bg-primary_hover nav:w-full nav:max-w-[420px] nav:justify-start nav:bg-primary nav:px-3 nav:shadow-xs nav:ring-1 nav:ring-inset"
       >
         <SearchLg className="size-5 shrink-0 text-fg-quaternary" aria-hidden />
-        <span className="hidden flex-1 truncate min-[860px]:block">Search contracts, tools, cases…</span>
-        <kbd className="hidden rounded border border-secondary bg-secondary px-1.5 font-body text-xs text-quaternary min-[860px]:block">{mod} K</kbd>
+        <span className="hidden flex-1 truncate nav:block">Search contracts, tools, cases…</span>
+        <kbd className="hidden rounded border border-secondary bg-secondary px-1.5 font-body text-xs text-quaternary nav:block">{mod} K</kbd>
       </button>
       <div className="ml-auto flex items-center gap-1">
         <Tooltip content={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}>

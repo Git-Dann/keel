@@ -83,7 +83,7 @@ export function TribunalPage() {
         Most tribunal losses come from process, not the reason itself. Answer the questions and Keel shows what to fix. It is a checklist, not legal advice, and it never stores names.
       </HelperBanner>
 
-      <div className="grid items-start gap-6 min-[1080px]:grid-cols-[minmax(0,1fr)_minmax(0,1.45fr)]">
+      <div className="grid items-start gap-6 split:grid-cols-[minmax(0,1fr)_minmax(0,1.45fr)]">
         <Card aria-labelledby="cases-h">
           <CardHeader id="cases-h" title="Open cases" sub="Initials only, by design" />
           {cases.length ? (

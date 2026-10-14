@@ -56,7 +56,7 @@ export function AppShell({ children }: { children: ReactNode }) {
         <Sidebar />
         <div className="relative flex min-w-0 flex-1 flex-col">
           <TopBar />
-          <main id="main" tabIndex={-1} className="min-h-0 flex-1 overflow-x-hidden overflow-y-auto px-4 pt-5 outline-hidden min-[860px]:px-8 min-[860px]:pt-8" style={{ paddingBottom: padBottom }}>
+          <main id="main" tabIndex={-1} className="min-h-0 flex-1 overflow-x-hidden overflow-y-auto px-4 pt-5 outline-hidden nav:px-8 nav:pt-8" style={{ paddingBottom: padBottom }}>
             <div key={resetCount} className="mx-auto w-full max-w-[1200px]">
               {children}
             </div>

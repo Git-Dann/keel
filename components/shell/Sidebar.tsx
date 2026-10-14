@@ -57,7 +57,7 @@ function NavItem({ href, label, Icon, collapsed, count, countLabel, tag, onNavig
       aria-current={active ? 'page' : undefined}
       aria-label={collapsed ? label + (count ? `, ${count} ${countLabel}` : '') : undefined}
       className={cx(
-        'group relative flex min-h-10 w-full items-center gap-3 rounded-lg px-3 py-2 text-sm font-semibold text-secondary transition-colors hover:bg-primary_hover',
+        'group relative flex min-h-10 w-full items-center gap-2.5 rounded-lg px-2.5 py-2 text-sm font-semibold text-secondary transition-colors hover:bg-primary_hover',
         active && 'bg-brand-primary_alt text-brand-secondary hover:bg-brand-primary_alt dark:bg-secondary dark:text-primary',
         collapsed && 'justify-center px-0',
       )}
@@ -65,7 +65,7 @@ function NavItem({ href, label, Icon, collapsed, count, countLabel, tag, onNavig
       <Icon className={cx('size-5 shrink-0 text-fg-quaternary', active && 'text-fg-brand-primary dark:text-fg-brand-primary')} aria-hidden />
       {!collapsed && <span className="min-w-0 flex-1 truncate">{label}</span>}
       {!collapsed && tag && (
-        <span className="rounded-full bg-utility-brand-50 px-2 py-0.5 text-xs font-medium text-utility-brand-700 ring-1 ring-utility-brand-200 ring-inset">{tag}</span>
+        <span className="shrink-0 rounded-full bg-utility-brand-50 px-1.5 py-0.5 text-[11px] leading-4 font-medium text-utility-brand-700 ring-1 ring-utility-brand-200 ring-inset">{tag}</span>
       )}
       {!collapsed && !!count && (
         <span
@@ -94,11 +94,11 @@ function NavItem({ href, label, Icon, collapsed, count, countLabel, tag, onNavig
 function NavBody({ collapsed, onNavigate }: { collapsed: boolean; onNavigate?: () => void }) {
   const counts = useNavCounts();
   return (
-    <nav aria-label="Main" className="flex-1 overflow-y-auto px-3 pb-3 scrollbar-hide">
+    <nav aria-label="Main" className="flex-1 overflow-y-auto px-2 pb-3 scrollbar-hide">
       <ul className="mt-2 flex flex-col gap-1">
         <NavItem href="/" label="Home" Icon={Home02} collapsed={collapsed} onNavigate={onNavigate} />
       </ul>
-      <p className={cx('mt-6 mb-1.5 px-3 text-xs font-medium text-quaternary', collapsed && 'sr-only')}>Tools</p>
+      <p className={cx('mt-6 mb-1.5 px-2.5 text-xs font-medium text-quaternary', collapsed && 'sr-only')}>Tools</p>
       <ul className={cx('flex flex-col gap-1', collapsed && 'mt-4 border-t border-secondary pt-4')}>
         {MODULE_ORDER.map((id) => (
           <NavItem
@@ -113,7 +113,7 @@ function NavBody({ collapsed, onNavigate }: { collapsed: boolean; onNavigate?: (
           />
         ))}
       </ul>
-      <p className={cx('mt-6 mb-1.5 px-3 text-xs font-medium text-quaternary', collapsed && 'sr-only')}>Internal</p>
+      <p className={cx('mt-6 mb-1.5 px-2.5 text-xs font-medium text-quaternary', collapsed && 'sr-only')}>Internal</p>
       <ul className={cx('flex flex-col gap-1', collapsed && 'mt-4 border-t border-secondary pt-4')}>
         <NavItem href="/case-for-keel" label="The case for Keel" Icon={PresentationChart01} collapsed={collapsed} tag="For Harry" onNavigate={onNavigate} />
       </ul>

@@ -63,7 +63,7 @@ export function BoardPage() {
         </Callout>
       )}
 
-      <div className="mb-6 grid grid-cols-2 gap-3 sm:gap-4 min-[1080px]:grid-cols-4">
+      <div className="mb-6 grid grid-cols-2 gap-3 sm:gap-4 split:grid-cols-4">
         {BOARD_METRICS.map((m) => (
           <Card key={m.id} as="div" className="p-4 sm:p-5">
             <p className="text-sm font-medium text-tertiary">{m.label}</p>
@@ -77,7 +77,7 @@ export function BoardPage() {
         ))}
       </div>
 
-      <div className="mb-6 grid items-start gap-6 min-[1080px]:grid-cols-2">
+      <div className="mb-6 grid items-start gap-6 split:grid-cols-2">
         <Sources />
         <Card aria-labelledby="sections-h">
           <CardHeader id="sections-h" title="Sections" sub="Untick anything this month's pack does not need" />

@@ -24,8 +24,8 @@
     --color-module-accounts: var(--color-blue-600);
     --color-module-board: var(--color-teal-600);
 
-    --breakpoint-nav: 860px;
-    --breakpoint-split: 1080px;
+    --breakpoint-nav: 53.75rem; /* 860px */
+    --breakpoint-split: 67.5rem; /* 1080px */
 }
 
 :root {
