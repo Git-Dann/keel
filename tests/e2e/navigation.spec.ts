@@ -61,9 +61,11 @@ test('sidebar badges, collapse and keyboard navigation', async ({ page }) => {
 
 test('the horizon plots deadlines and opens them', async ({ page }) => {
   await open(page, '/');
-  const dots = page.getByRole('list', { name: 'Deadlines in the next 90 days' }).getByRole('link');
+  const dots = page.getByRole('group', { name: 'Deadlines in the next 90 days' }).getByRole('link');
   await expect(dots.first()).toBeVisible();
   expect(await dots.count()).toBeGreaterThan(15);
+  await expect(page.getByRole('list', { name: 'Tribunal risk deadlines' }).getByRole('link')).toHaveCount(4);
+  await expect(page.getByRole('link', { name: /Cloud hosting.*Needs you now/ })).toBeVisible();
   await page.getByRole('link', { name: /Notice deadline: Enterprise CRM licence/ }).click();
   await expect(page.getByRole('dialog', { name: 'Enterprise CRM licence' })).toBeVisible();
 });

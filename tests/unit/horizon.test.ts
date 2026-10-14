@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { assignLanes, horizonEvents, weekTicks } from '@/lib/logic/horizon';
+import { horizonEvents, weekTicks } from '@/lib/logic/horizon';
 import { seedWorkspace } from '@/lib/seed';
 import { isoInDays } from '@/lib/format';
 
@@ -50,15 +50,6 @@ describe('horizon events', () => {
   });
 });
 
-describe('lanes', () => {
-  it('stacks close dots on three lanes', () => {
-    expect(assignLanes([{ day: 0 }, { day: 1 }, { day: 2 }, { day: 10 }])).toEqual([0, 1, 2, 0]);
-  });
-  it('reuses lanes once far enough apart', () => {
-    expect(assignLanes([{ day: 0 }, { day: 4 }, { day: 8 }])).toEqual([0, 0, 0]);
-  });
-  it('falls back to the oldest lane when all are busy', () => {
-    expect(assignLanes([{ day: 0 }, { day: 1 }, { day: 2 }, { day: 3 }])).toEqual([0, 1, 2, 0]);
-  });
+describe('gridlines', () => {
   it('weekly ticks', () => expect(weekTicks()).toEqual([7, 14, 21, 28, 35, 42, 49, 56, 63, 70, 77, 84]));
 });
